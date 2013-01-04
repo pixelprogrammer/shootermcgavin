@@ -1,0 +1,11 @@
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\player.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\ShooterMcGavin.exe
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\ShooterMcGavin.pdb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\ShooterMcGavin.exe
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\ShooterMcGavin.pdb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\bgLayer1.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\shipAnimation.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\bgLayer2.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\mainbackground.xnb

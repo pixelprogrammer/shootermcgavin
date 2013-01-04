@@ -1,0 +1,5 @@
+Content\player.xnb
+Content\bgLayer1.xnb
+Content\shipAnimation.xnb
+Content\bgLayer2.xnb
+Content\mainbackground.xnb
