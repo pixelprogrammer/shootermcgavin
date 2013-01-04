@@ -19,9 +19,9 @@ namespace ShooterMcGavin
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Player player;
-        Texture2D background;
 
         // parallaxing backgrounds
+        ParallaxingBackground bgLayer0;
         ParallaxingBackground bgLayer1;
         ParallaxingBackground bgLayer2;
 
@@ -53,6 +53,7 @@ namespace ShooterMcGavin
             player = new Player();
             playerSpeed = 8.0f;
 
+            bgLayer0 = new ParallaxingBackground();
             bgLayer1 = new ParallaxingBackground();
             bgLayer2 = new ParallaxingBackground();
 
@@ -74,9 +75,12 @@ namespace ShooterMcGavin
             Texture2D playerTexture = Content.Load<Texture2D>("shipAnimation");
             playerAnimation.Initialize(playerTexture, Vector2.Zero, 115, 69, 8, 15, Color.White, 1f, true);
             Vector2 playerPosition = new Vector2(0, 0);
+
             player.Initialize(playerAnimation, playerPosition);
+
             // load the backgrounds
-            background = Content.Load<Texture2D>("mainbackground");
+            // background = Content.Load<Texture2D>("mainbackground");
+            bgLayer0.Initialize(Content, "mainbackground", GraphicsDevice.Viewport.Width,-1);
             bgLayer1.Initialize(Content, "bgLayer1", GraphicsDevice.Viewport.Width, -2);
             bgLayer2.Initialize(Content, "bgLayer2", GraphicsDevice.Viewport.Width, -4);
             
@@ -111,6 +115,7 @@ namespace ShooterMcGavin
             currentGamePadState = GamePad.GetState(PlayerIndex.One);
 
             UpdatePlayer(gameTime);
+            bgLayer0.Update();
             bgLayer1.Update();
             bgLayer2.Update();
 
@@ -162,7 +167,8 @@ namespace ShooterMcGavin
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             // draw the background
-            spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            // spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            bgLayer0.Draw(spriteBatch);
             bgLayer1.Draw(spriteBatch);
             bgLayer2.Draw(spriteBatch);
             // draw the player
