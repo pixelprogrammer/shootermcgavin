@@ -1,0 +1,8 @@
+*.swp
+*.suo
+**/bin/*
+**/obj/*
+*.cachefile
+*.Debug.cachefile
+*.ccgame
+!*.dll
