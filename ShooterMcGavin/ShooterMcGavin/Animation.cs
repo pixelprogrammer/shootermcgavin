@@ -81,7 +81,7 @@ namespace ShooterMcGavin
                 elapsedTime = 0;
             }
 
-            // Lets get find the frame source
+            // Lets find the frame source
             sourceRect = new Rectangle(
                 currentFrame * FrameWidth, 0, FrameWidth, FrameHeight);
 

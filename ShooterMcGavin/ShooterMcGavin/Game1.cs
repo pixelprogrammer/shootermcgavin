@@ -51,7 +51,7 @@ namespace ShooterMcGavin
         {
             // TODO: Add your initialization logic here
             player = new Player();
-            playerSpeed = 8.0f;
+            playerSpeed = 4.0f;
 
             bgLayer0 = new ParallaxingBackground();
             bgLayer1 = new ParallaxingBackground();
