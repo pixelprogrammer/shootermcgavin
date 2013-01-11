@@ -20,3 +20,4 @@ C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\Res
 C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\ShooterMcGavin.exe
 C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\ShooterMcGavin.pdb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\mineAnimation.xnb
