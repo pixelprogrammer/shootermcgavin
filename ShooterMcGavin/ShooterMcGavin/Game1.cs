@@ -35,6 +35,15 @@ namespace ShooterMcGavin
 
         float playerSpeed;
 
+        // initializing enemies
+        Texture2D enemyTexture;
+        List<Enemy> enemies;
+
+        TimeSpan enemySpawnTime;
+        TimeSpan previousSpawnTime;
+
+        Random random;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -56,6 +65,13 @@ namespace ShooterMcGavin
             bgLayer0 = new ParallaxingBackground();
             bgLayer1 = new ParallaxingBackground();
             bgLayer2 = new ParallaxingBackground();
+
+            enemies = new List<Enemy>();
+
+            previousSpawnTime = TimeSpan.Zero;
+            enemySpawnTime = TimeSpan.FromSeconds(1.0f);
+
+            random = new Random();
 
             base.Initialize();
         }
@@ -84,6 +100,8 @@ namespace ShooterMcGavin
             bgLayer1.Initialize(Content, "bgLayer1", GraphicsDevice.Viewport.Width, -2);
             bgLayer2.Initialize(Content, "bgLayer2", GraphicsDevice.Viewport.Width, -4);
             
+            // load enemies
+            enemyTexture = Content.Load<Texture2D>("mineAnimation");
         }
 
         /// <summary>
@@ -115,6 +133,8 @@ namespace ShooterMcGavin
             currentGamePadState = GamePad.GetState(PlayerIndex.One);
 
             UpdatePlayer(gameTime);
+            UpdateEnemies(gameTime);
+
             bgLayer0.Update();
             bgLayer1.Update();
             bgLayer2.Update();
@@ -122,6 +142,37 @@ namespace ShooterMcGavin
             base.Update(gameTime);
         }
 
+        
+
+
+        /// <summary>
+        /// This is called when the game should draw itself.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            // draw the background
+            // spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            bgLayer0.Draw(spriteBatch);
+            bgLayer1.Draw(spriteBatch);
+            bgLayer2.Draw(spriteBatch);
+            // draw the enemies
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                enemies[i].Draw(spriteBatch);
+            }
+            // draw the player
+            player.Draw(spriteBatch);
+            
+            spriteBatch.End();
+
+            base.Draw(gameTime);
+        }
+        // custom functions
         private void UpdatePlayer(GameTime gameTime)
         {
             player.Update(gameTime);
@@ -149,34 +200,46 @@ namespace ShooterMcGavin
             }
 
             // lets make sure the player doesn't go out of bounds
-            
-            player.Position.X = MathHelper.Clamp(player.Position.X, player.Width/2, GraphicsDevice.Viewport.Width - player.Width/2);
-            player.Position.Y = MathHelper.Clamp(player.Position.Y, player.Height/2, GraphicsDevice.Viewport.Height - player.Height/2);
-            
+
+            player.Position.X = MathHelper.Clamp(player.Position.X, player.Width / 2, GraphicsDevice.Viewport.Width - player.Width / 2);
+            player.Position.Y = MathHelper.Clamp(player.Position.Y, player.Height / 2, GraphicsDevice.Viewport.Height - player.Height / 2);
+
         }
 
-
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
+        private void AddEnemy()
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            Animation enemyAnimation = new Animation();
+            enemyAnimation.Initialize(enemyTexture, Vector2.Zero, 47, 61, 8, 30, Color.White, 1f, true);
 
-            // TODO: Add your drawing code here
-            spriteBatch.Begin();
-            // draw the background
-            // spriteBatch.Draw(background, Vector2.Zero, Color.White);
-            bgLayer0.Draw(spriteBatch);
-            bgLayer1.Draw(spriteBatch);
-            bgLayer2.Draw(spriteBatch);
-            // draw the player
-            player.Draw(spriteBatch);
-            
-            spriteBatch.End();
+            Vector2 position = new Vector2(
+                GraphicsDevice.Viewport.Width + enemyTexture.Width,
+                random.Next(100, GraphicsDevice.Viewport.Height - 100));
 
-            base.Draw(gameTime);
+            Enemy enemy = new Enemy();
+            enemy.Initialize(enemyAnimation, position);
+
+            enemies.Add(enemy);
+
+        }
+
+        private void UpdateEnemies(GameTime gameTime)
+        {
+            if (gameTime.TotalGameTime - previousSpawnTime > enemySpawnTime)
+            {
+                previousSpawnTime = gameTime.TotalGameTime;
+
+                AddEnemy();
+            }
+
+            for (int i = enemies.Count - 1; i >= 0; i--)
+            {
+                enemies[i].Update(gameTime);
+
+                if (enemies[i].Active == false)
+                {
+                    enemies.RemoveAt(i);
+                }
+            }
         }
     }
 }
