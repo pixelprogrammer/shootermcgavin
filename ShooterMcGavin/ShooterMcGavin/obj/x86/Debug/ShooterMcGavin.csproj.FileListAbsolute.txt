@@ -21,3 +21,5 @@ C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\Mic
 C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\ShooterMcGavin.exe
 C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\ShooterMcGavin.pdb
 C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\mineAnimation.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\explosion.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\laser.xnb

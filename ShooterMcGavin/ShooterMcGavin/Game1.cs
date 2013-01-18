@@ -44,6 +44,17 @@ namespace ShooterMcGavin
 
         Random random;
 
+        // intialize the projectiles variables
+        Texture2D projectileTexture;
+        List<Projectile> projectiles;
+
+        TimeSpan fireTime;
+        TimeSpan previousFireTime;
+
+        // initialize the explosion variables
+        Texture2D explosionTexture;
+        List<Explosion> explosions;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -72,6 +83,11 @@ namespace ShooterMcGavin
             enemySpawnTime = TimeSpan.FromSeconds(1.0f);
 
             random = new Random();
+
+            projectiles = new List<Projectile>();
+            fireTime = TimeSpan.FromSeconds(.15f);
+
+            explosions = new List<Explosion>();
 
             base.Initialize();
         }
@@ -102,6 +118,12 @@ namespace ShooterMcGavin
             
             // load enemies
             enemyTexture = Content.Load<Texture2D>("mineAnimation");
+
+            // Load projectile textures
+            projectileTexture = Content.Load<Texture2D>("laser");
+
+            // load explosions.....PRRRKKKkakkkarrrrrrrrggkkkkkkkkk
+            explosionTexture = Content.Load<Texture2D>("explosion");
         }
 
         /// <summary>
@@ -135,6 +157,10 @@ namespace ShooterMcGavin
             UpdatePlayer(gameTime);
             UpdateEnemies(gameTime);
 
+            UpdateCollision();
+            UpdateProjectiles();
+            UpdateExplosions(gameTime);
+
             bgLayer0.Update();
             bgLayer1.Update();
             bgLayer2.Update();
@@ -165,9 +191,18 @@ namespace ShooterMcGavin
             {
                 enemies[i].Draw(spriteBatch);
             }
+            // draw projectiles
+            for (int i = 0; i < projectiles.Count; i++)
+            {
+                projectiles[i].Draw(spriteBatch);
+            }
             // draw the player
             player.Draw(spriteBatch);
-            
+            // draw explosions
+            for (int i = 0; i < explosions.Count; i++)
+            {
+                explosions[i].Draw(spriteBatch);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -204,6 +239,16 @@ namespace ShooterMcGavin
             player.Position.X = MathHelper.Clamp(player.Position.X, player.Width / 2, GraphicsDevice.Viewport.Width - player.Width / 2);
             player.Position.Y = MathHelper.Clamp(player.Position.Y, player.Height / 2, GraphicsDevice.Viewport.Height - player.Height / 2);
 
+            // lets add some shooting controls
+            if(currentKeyboardState.IsKeyDown(Keys.Space)) {
+                if (gameTime.TotalGameTime - previousFireTime > fireTime)
+                {
+                    // reset the previous time for the fire rate
+                    previousFireTime = gameTime.TotalGameTime;
+                    AddProjectile(player.Position + new Vector2(player.Width / 2, 0));
+                }
+            }
+
         }
 
         private void AddEnemy()
@@ -237,8 +282,113 @@ namespace ShooterMcGavin
 
                 if (enemies[i].Active == false)
                 {
+                    if (enemies[i].Health <= 0)
+                    {
+                        // add an explosion
+                        AddExplosion(enemies[i].Position);
+                    }
                     enemies.RemoveAt(i);
                 }
+            }
+        }
+
+        private void UpdateCollision()
+        {
+            // we will be using the Rectangles built in intersect function
+            // to determine collision
+            Rectangle playerHitbox;
+            Rectangle enemyHitbox;
+            Rectangle projectileHitbox;
+
+            // we will declare the hitbox for the player just once
+            playerHitbox = new Rectangle(
+                (int)player.Position.X,
+                (int)player.Position.Y,
+                player.Width,
+                player.Health);
+
+            // check the collision between the player and enemies
+            for (int i = 0; i < enemies.Count; i++)
+            {
+
+                // create the enemies hit box
+                enemyHitbox = new Rectangle(
+                    (int)enemies[i].Position.X,
+                    (int)enemies[i].Position.Y,
+                    enemies[i].Width,
+                    enemies[i].Height);
+
+                if (playerHitbox.Intersects(enemyHitbox))
+                {
+                    enemies[i].Health = 0;
+                    // kill the player
+                    if (player.Health <= 0) player.Active = false;
+
+                }
+            }
+
+            // projectile vs enemies
+            for(int i = 0; i < projectiles.Count; i++) {
+                for(int j =0; j < enemies.Count; j++) {
+                    // create the rectangles needed
+                    // lets start with the projectiles
+                    projectileHitbox = new Rectangle(
+                        (int)projectiles[i].Position.X - projectiles[i].Width /2,
+                        (int)projectiles[i].Position.Y - projectiles[i].Height/2,
+                        projectiles[i].Width,
+                        projectiles[i].Height);
+
+                    // lets do the enemies now
+                    enemyHitbox = new Rectangle(
+                        (int)enemies[j].Position.X - enemies[j].Width/2,
+                        (int)enemies[j].Position.Y - enemies[j].Height/2,
+                        enemies[j].Width,
+                        enemies[j].Height);
+
+                    // do the 2 objects collide
+                    if (projectileHitbox.Intersects(enemyHitbox))
+                    {
+                        enemies[j].Health -= projectiles[i].Damage;
+                        projectiles[i].Active = false;
+                    }
+                }
+            }
+
+        }
+
+        private void AddProjectile(Vector2 position)
+        {
+            Projectile projectile = new Projectile();
+            projectile.Initialize(GraphicsDevice.Viewport, projectileTexture, position);
+            projectiles.Add(projectile);
+        }
+
+        private void UpdateProjectiles()
+        {
+            for (int i = projectiles.Count - 1; i >= 0; i--)
+            {
+                projectiles[i].Update();
+                if (projectiles[i].Active == false) projectiles.RemoveAt(i);
+            }
+        }
+
+        private void AddExplosion(Vector2 position)
+        {
+            Animation explosionAnimation = new Animation();
+            explosionAnimation.Initialize(explosionTexture, position, 134, 134, 12, 45, Color.White, 1f, false);
+
+            Explosion explosion = new Explosion();
+            explosion.Initialize(explosionAnimation);
+
+            explosions.Add(explosion);
+        }
+
+        private void UpdateExplosions(GameTime gameTime)
+        {
+            for (int i = explosions.Count - 1; i >= 0; i--)
+            {
+                explosions[i].Update(gameTime);
+                if (explosions[i].finished == true) { explosions.RemoveAt(i); }
             }
         }
     }

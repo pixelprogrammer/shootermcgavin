@@ -55,6 +55,24 @@
       <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\mineAnimation.xnb</Output>
       <Time>2013-01-10T20:48:10.0096599-08:00</Time>
     </Item>
+    <Item>
+      <Source>explosion.png</Source>
+      <Name>explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\explosion.xnb</Output>
+      <Time>2013-01-16T00:41:26.0059616-08:00</Time>
+    </Item>
+    <Item>
+      <Source>laser.png</Source>
+      <Name>laser</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\laser.xnb</Output>
+      <Time>2013-01-16T00:41:26.0079617-08:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
