@@ -6,3 +6,10 @@ Content\mainbackground.xnb
 Content\mineAnimation.xnb
 Content\explosion.xnb
 Content\laser.xnb
+Content\audio\music\gameMusic.xnb
+Content\audio\music\menuMusic.xnb
+Content\audio\sound\explosion.xnb
+Content\audio\sound\laserFire.xnb
+Content\gameFont.xnb
+Content\audio\music\gameMusic.wma
+Content\audio\music\menuMusic.wma

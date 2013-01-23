@@ -73,6 +73,53 @@
       <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\laser.xnb</Output>
       <Time>2013-01-16T00:41:26.0079617-08:00</Time>
     </Item>
+    <Item>
+      <Source>audio\music\gameMusic.mp3</Source>
+      <Name>audio\music\gameMusic</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\gameMusic.xnb</Output>
+      <Extra>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\gameMusic.wma</Extra>
+      <Time>2013-01-20T13:41:51.2730238-08:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\music\menuMusic.mp3</Source>
+      <Name>audio\music\menuMusic</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\menuMusic.xnb</Output>
+      <Extra>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\menuMusic.wma</Extra>
+      <Time>2013-01-20T13:41:51.3000254-08:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sound\explosion.wav</Source>
+      <Name>audio\sound\explosion</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\sound\explosion.xnb</Output>
+      <Time>2013-01-20T13:42:00.3825449-08:00</Time>
+    </Item>
+    <Item>
+      <Source>audio\sound\laserFire.wav</Source>
+      <Name>audio\sound\laserFire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\sound\laserFire.xnb</Output>
+      <Time>2013-01-20T13:42:00.384545-08:00</Time>
+    </Item>
+    <Item>
+      <Source>gameFont.spritefont</Source>
+      <Name>gameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\gameFont.xnb</Output>
+      <Time>2013-01-20T19:21:19.9880477-08:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

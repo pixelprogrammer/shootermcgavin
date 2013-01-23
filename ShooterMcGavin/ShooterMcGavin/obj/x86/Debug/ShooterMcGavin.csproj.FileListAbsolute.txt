@@ -23,3 +23,10 @@ C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\obj\x86\Debug\Sho
 C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\mineAnimation.xnb
 C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\explosion.xnb
 C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\laser.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\gameMusic.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\menuMusic.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\sound\explosion.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\sound\laserFire.xnb
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\gameMusic.wma
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\menuMusic.wma
+C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\gameFont.xnb

@@ -55,6 +55,34 @@ namespace ShooterMcGavin
         Texture2D explosionTexture;
         List<Explosion> explosions;
 
+        // initialize the sound vars
+        SoundEffect laserSound;
+        SoundEffect explosionSound;
+        Song gameplayMusic;
+
+        // score
+        int score;
+
+        // fonts
+        SpriteFont font;
+
+        // this is just to draw the hit boxes
+        Texture2D pixel;
+        Texture2D greenColor;
+        Texture2D blueColor;
+        Texture2D redColor;
+
+        // we will be using the Rectangles built in intersect function
+        // to determine collision
+        Rectangle playerHitbox;
+        Rectangle enemyHitbox;
+        Rectangle projectileHitbox;
+
+        Rectangle testHitbox;
+        Rectangle testEnemyHitbox;
+        List<Rectangle> testEnemies;
+
+        List<Rectangle> enemyHitboxes;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -78,6 +106,7 @@ namespace ShooterMcGavin
             bgLayer2 = new ParallaxingBackground();
 
             enemies = new List<Enemy>();
+            enemyHitboxes = new List<Rectangle>();
 
             previousSpawnTime = TimeSpan.Zero;
             enemySpawnTime = TimeSpan.FromSeconds(1.0f);
@@ -88,6 +117,8 @@ namespace ShooterMcGavin
             fireTime = TimeSpan.FromSeconds(.15f);
 
             explosions = new List<Explosion>();
+
+            score = 0;
 
             base.Initialize();
         }
@@ -105,10 +136,14 @@ namespace ShooterMcGavin
 
             Animation playerAnimation = new Animation();
             Texture2D playerTexture = Content.Load<Texture2D>("shipAnimation");
-            playerAnimation.Initialize(playerTexture, Vector2.Zero, 115, 69, 8, 15, Color.White, 1f, true);
-            Vector2 playerPosition = new Vector2(0, 0);
+            playerAnimation.Initialize(playerTexture, new Vector2(0,0), 115, 69, 8, 15, Color.White, 1f, true);
+            Vector2 playerPosition = new Vector2(0, 100 + playerAnimation.FrameHeight);
 
-            player.Initialize(playerAnimation, playerPosition);
+             // set the collision border colors
+            pixel = new Texture2D(GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
+            pixel.SetData(new[] { Color.White });
+
+            player.Initialize(playerAnimation, playerPosition, pixel);
 
             // load the backgrounds
             // background = Content.Load<Texture2D>("mainbackground");
@@ -124,6 +159,18 @@ namespace ShooterMcGavin
 
             // load explosions.....PRRRKKKkakkkarrrrrrrrggkkkkkkkkk
             explosionTexture = Content.Load<Texture2D>("explosion");
+
+            // load the music and sounds
+            gameplayMusic = Content.Load<Song>("audio/music/gameMusic");
+            laserSound = Content.Load<SoundEffect>("audio/sound/laserFire");
+            explosionSound = Content.Load<SoundEffect>("audio/sound/explosion");
+
+            // load fonts
+            font = Content.Load<SpriteFont>("gameFont");
+            // start music
+            PlayMusic(gameplayMusic);
+
+            
         }
 
         /// <summary>
@@ -196,6 +243,7 @@ namespace ShooterMcGavin
             {
                 projectiles[i].Draw(spriteBatch);
             }
+            
             // draw the player
             player.Draw(spriteBatch);
             // draw explosions
@@ -203,6 +251,24 @@ namespace ShooterMcGavin
             {
                 explosions[i].Draw(spriteBatch);
             }
+            // draw the fonts
+            // score
+            spriteBatch.DrawString(
+                font,
+                "Score: " + score,
+                new Vector2(
+                    GraphicsDevice.Viewport.TitleSafeArea.X,
+                    GraphicsDevice.Viewport.TitleSafeArea.Y),
+                Color.White);
+
+            // health
+            spriteBatch.DrawString(
+                font,
+                "Health: " + player.Health,
+                new Vector2(
+                    GraphicsDevice.Viewport.TitleSafeArea.X,
+                    GraphicsDevice.Viewport.TitleSafeArea.Y + 30),
+                Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -246,6 +312,7 @@ namespace ShooterMcGavin
                     // reset the previous time for the fire rate
                     previousFireTime = gameTime.TotalGameTime;
                     AddProjectile(player.Position + new Vector2(player.Width / 2, 0));
+                    laserSound.Play();
                 }
             }
 
@@ -257,13 +324,22 @@ namespace ShooterMcGavin
             enemyAnimation.Initialize(enemyTexture, Vector2.Zero, 47, 61, 8, 30, Color.White, 1f, true);
 
             Vector2 position = new Vector2(
-                GraphicsDevice.Viewport.Width + enemyTexture.Width,
-                random.Next(100, GraphicsDevice.Viewport.Height - 100));
+                GraphicsDevice.Viewport.Width + enemyTexture.Width, 100 + player.Height);
+                //random.Next(100, GraphicsDevice.Viewport.Height - 100));
 
             Enemy enemy = new Enemy();
-            enemy.Initialize(enemyAnimation, position);
+            enemy.Initialize(enemyAnimation, position, pixel);
 
             enemies.Add(enemy);
+
+            // delete this code after
+            Rectangle hitbox = new Rectangle(
+                (int)enemy.Position.X + enemy.Width/2,
+                (int)enemy.Position.Y,
+                enemy.Width,
+                enemy.Height);
+
+            enemyHitboxes.Add(hitbox);
 
         }
 
@@ -274,6 +350,7 @@ namespace ShooterMcGavin
                 previousSpawnTime = gameTime.TotalGameTime;
 
                 AddEnemy();
+                
             }
 
             for (int i = enemies.Count - 1; i >= 0; i--)
@@ -286,26 +363,25 @@ namespace ShooterMcGavin
                     {
                         // add an explosion
                         AddExplosion(enemies[i].Position);
+                        explosionSound.Play();
+                        score += enemies[i].PointValue;
                     }
                     enemies.RemoveAt(i);
+                    enemyHitboxes.RemoveAt(i); // delete this code
                 }
             }
         }
 
         private void UpdateCollision()
         {
-            // we will be using the Rectangles built in intersect function
-            // to determine collision
-            Rectangle playerHitbox;
-            Rectangle enemyHitbox;
-            Rectangle projectileHitbox;
+            
 
             // we will declare the hitbox for the player just once
             playerHitbox = new Rectangle(
                 (int)player.Position.X,
                 (int)player.Position.Y,
                 player.Width,
-                player.Health);
+                player.Height);
 
             // check the collision between the player and enemies
             for (int i = 0; i < enemies.Count; i++)
@@ -321,8 +397,14 @@ namespace ShooterMcGavin
                 if (playerHitbox.Intersects(enemyHitbox))
                 {
                     enemies[i].Health = 0;
+                    // damage player
+                    player.Health -= enemies[i].Damage;
                     // kill the player
-                    if (player.Health <= 0) player.Active = false;
+                    if (player.Health <= 0)
+                    {
+                        player.Active = false;
+
+                    }
 
                 }
             }
@@ -356,6 +438,29 @@ namespace ShooterMcGavin
 
         }
 
+        private void TestCollision()
+        {
+            testHitbox = new Rectangle(
+                (int)player.Position.X,
+                (int)player.Position.Y + 150,
+                player.Width,
+                player.Height);
+        }
+
+        private void TestUpdate(GameTime gameTime)
+        {
+            // move the test enemies
+
+        }
+        private void TextDraw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(pixel, testHitbox, Color.SeaGreen);
+        }
+
+        private void AddTestEnemy()
+        {
+
+        }
         private void AddProjectile(Vector2 position)
         {
             Projectile projectile = new Projectile();
@@ -390,6 +495,18 @@ namespace ShooterMcGavin
                 explosions[i].Update(gameTime);
                 if (explosions[i].finished == true) { explosions.RemoveAt(i); }
             }
+        }
+
+        private void PlayMusic(Song song)
+        {
+            try
+            {
+                MediaPlayer.Play(song);
+
+                MediaPlayer.IsRepeating = true;
+            }
+            catch { }
+
         }
     }
 }

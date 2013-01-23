@@ -21,20 +21,22 @@ namespace ShooterMcGavin
         {
             get { return EnemyAnimation.FrameHeight; }
         }
-
+        Texture2D pixel;
         float enemySpeed;
 
-        public void Initialize(Animation animation, Vector2 position)
+        public void Initialize(Animation animation, Vector2 position, Texture2D pixel)
         {
             EnemyAnimation = animation;
             Position = position;
             Active = true;
-            Health = 10;
+            Health = 2;
             Damage = 10;
 
-            enemySpeed = 6f;
+            enemySpeed = 1f;
 
             PointValue = 100;
+
+            this.pixel = pixel;
         }
 
         public void Update(GameTime gameTime)
@@ -55,6 +57,11 @@ namespace ShooterMcGavin
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(pixel, new Rectangle(
+                (int)Position.X - Width / 2,
+                (int)Position.Y - Height / 2,
+                Width,
+                Height), Color.Red);
             EnemyAnimation.Draw(spriteBatch);
         }
     }
