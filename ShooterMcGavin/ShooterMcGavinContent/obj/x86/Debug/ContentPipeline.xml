@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\player.xnb</Output>
-      <Time>2013-01-01T00:13:14.9210236-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\player.xnb</Output>
+      <Time>2013-01-04T14:20:51.4603536-08:00</Time>
     </Item>
     <Item>
       <Source>bgLayer1.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\bgLayer1.xnb</Output>
-      <Time>2013-01-01T01:58:36.0525717-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\bgLayer1.xnb</Output>
+      <Time>2013-01-04T14:20:51.4093507-08:00</Time>
     </Item>
     <Item>
       <Source>shipAnimation.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\shipAnimation.xnb</Output>
-      <Time>2013-01-01T02:25:02.4243069-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\shipAnimation.xnb</Output>
+      <Time>2013-01-04T14:20:51.4723543-08:00</Time>
     </Item>
     <Item>
       <Source>bgLayer2.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\bgLayer2.xnb</Output>
-      <Time>2013-01-04T00:00:34.0092591-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\bgLayer2.xnb</Output>
+      <Time>2013-01-04T14:20:51.4163511-08:00</Time>
     </Item>
     <Item>
       <Source>mainbackground.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\mainbackground.xnb</Output>
-      <Time>2013-01-05T01:38:24.9800133-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\mainbackground.xnb</Output>
+      <Time>2013-01-04T14:38:27.9575359-08:00</Time>
     </Item>
     <Item>
       <Source>mineAnimation.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\mineAnimation.xnb</Output>
-      <Time>2013-01-10T20:48:10.0096599-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\mineAnimation.xnb</Output>
+      <Time>2013-01-11T11:44:34.120101-08:00</Time>
     </Item>
     <Item>
       <Source>explosion.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\explosion.xnb</Output>
-      <Time>2013-01-16T00:41:26.0059616-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\explosion.xnb</Output>
+      <Time>2013-01-23T13:47:50.4254566-08:00</Time>
     </Item>
     <Item>
       <Source>laser.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\laser.xnb</Output>
-      <Time>2013-01-16T00:41:26.0079617-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\laser.xnb</Output>
+      <Time>2013-01-23T13:47:50.432457-08:00</Time>
     </Item>
     <Item>
       <Source>audio\music\gameMusic.mp3</Source>
@@ -79,9 +79,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\gameMusic.xnb</Output>
-      <Extra>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\gameMusic.wma</Extra>
-      <Time>2013-01-20T13:41:51.2730238-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\gameMusic.xnb</Output>
+      <Extra>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\gameMusic.wma</Extra>
+      <Time>2013-01-23T13:47:50.3554526-08:00</Time>
     </Item>
     <Item>
       <Source>audio\music\menuMusic.mp3</Source>
@@ -89,9 +89,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\menuMusic.xnb</Output>
-      <Extra>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\menuMusic.wma</Extra>
-      <Time>2013-01-20T13:41:51.3000254-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\menuMusic.xnb</Output>
+      <Extra>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\music\menuMusic.wma</Extra>
+      <Time>2013-01-23T13:47:50.379454-08:00</Time>
     </Item>
     <Item>
       <Source>audio\sound\explosion.wav</Source>
@@ -99,8 +99,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\sound\explosion.xnb</Output>
-      <Time>2013-01-20T13:42:00.3825449-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\sound\explosion.xnb</Output>
+      <Time>2013-01-23T13:47:50.4054555-08:00</Time>
     </Item>
     <Item>
       <Source>audio\sound\laserFire.wav</Source>
@@ -108,8 +108,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\sound\laserFire.xnb</Output>
-      <Time>2013-01-20T13:42:00.384545-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\audio\sound\laserFire.xnb</Output>
+      <Time>2013-01-23T13:47:50.4154561-08:00</Time>
     </Item>
     <Item>
       <Source>gameFont.spritefont</Source>
@@ -117,8 +117,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\gameFont.xnb</Output>
-      <Time>2013-01-20T19:21:19.9880477-08:00</Time>
+      <Output>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\gameFont.xnb</Output>
+      <Time>2013-01-23T13:47:50.4294569-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -126,39 +126,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavinContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavinContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Joe\My Games\ShooterMcGavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavinContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavinContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Projects\Games\shootermcgavin\ShooterMcGavin\ShooterMcGavin\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-05-29T11:22:29.7894103-07:00</Value>
+        <Value>2012-01-24T16:08:48.1172778-08:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

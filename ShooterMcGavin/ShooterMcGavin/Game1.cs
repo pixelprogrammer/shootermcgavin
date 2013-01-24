@@ -269,6 +269,25 @@ namespace ShooterMcGavin
                     GraphicsDevice.Viewport.TitleSafeArea.X,
                     GraphicsDevice.Viewport.TitleSafeArea.Y + 30),
                 Color.White);
+
+            // player position
+            spriteBatch.DrawString(
+               font,
+               "X: " + player.Position.X,
+               new Vector2(
+                   GraphicsDevice.Viewport.TitleSafeArea.X,
+                   GraphicsDevice.Viewport.TitleSafeArea.Y + 60),
+               Color.White);
+
+            // player position
+            spriteBatch.DrawString(
+               font,
+               "Y: " + player.Position.Y,
+               new Vector2(
+                   GraphicsDevice.Viewport.TitleSafeArea.X,
+                   GraphicsDevice.Viewport.TitleSafeArea.Y + 90),
+               Color.White);
+
             spriteBatch.End();
 
             base.Draw(gameTime);
