@@ -321,8 +321,8 @@ namespace ShooterMcGavin
 
             // lets make sure the player doesn't go out of bounds
 
-            player.Position.X = MathHelper.Clamp(player.Position.X, player.Width / 2, GraphicsDevice.Viewport.Width - player.Width / 2);
-            player.Position.Y = MathHelper.Clamp(player.Position.Y, player.Height / 2, GraphicsDevice.Viewport.Height - player.Height / 2);
+            player.Position.X = MathHelper.Clamp(player.Position.X, 0, GraphicsDevice.Viewport.Width - player.Width);
+            player.Position.Y = MathHelper.Clamp(player.Position.Y, 0, GraphicsDevice.Viewport.Height - player.Height);
 
             // lets add some shooting controls
             if(currentKeyboardState.IsKeyDown(Keys.Space)) {
@@ -330,7 +330,7 @@ namespace ShooterMcGavin
                 {
                     // reset the previous time for the fire rate
                     previousFireTime = gameTime.TotalGameTime;
-                    AddProjectile(player.Position + new Vector2(player.Width / 2, 0));
+                    AddProjectile(player.Position + new Vector2(player.Width, player.Height/2));
                     laserSound.Play();
                 }
             }
@@ -353,7 +353,7 @@ namespace ShooterMcGavin
 
             // delete this code after
             Rectangle hitbox = new Rectangle(
-                (int)enemy.Position.X + enemy.Width/2,
+                (int)enemy.Position.X,
                 (int)enemy.Position.Y,
                 enemy.Width,
                 enemy.Height);
@@ -434,15 +434,15 @@ namespace ShooterMcGavin
                     // create the rectangles needed
                     // lets start with the projectiles
                     projectileHitbox = new Rectangle(
-                        (int)projectiles[i].Position.X - projectiles[i].Width /2,
-                        (int)projectiles[i].Position.Y - projectiles[i].Height/2,
+                        (int)projectiles[i].Position.X,
+                        (int)projectiles[i].Position.Y,
                         projectiles[i].Width,
                         projectiles[i].Height);
 
                     // lets do the enemies now
                     enemyHitbox = new Rectangle(
-                        (int)enemies[j].Position.X - enemies[j].Width/2,
-                        (int)enemies[j].Position.Y - enemies[j].Height/2,
+                        (int)enemies[j].Position.X,
+                        (int)enemies[j].Position.Y,
                         enemies[j].Width,
                         enemies[j].Height);
 

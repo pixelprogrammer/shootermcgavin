@@ -58,8 +58,8 @@ namespace ShooterMcGavin
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(pixel, new Rectangle(
-                (int)Position.X - Width / 2,
-                (int)Position.Y - Height / 2,
+                (int)Position.X,
+                (int)Position.Y,
                 Width,
                 Height), Color.Red);
             EnemyAnimation.Draw(spriteBatch);
