@@ -21,8 +21,10 @@ namespace ShooterMcGavin
         {
             get { return EnemyAnimation.FrameHeight; }
         }
+
         Texture2D pixel;
         float enemySpeed;
+
 
         public void Initialize(Animation animation, Vector2 position, Texture2D pixel)
         {
@@ -32,10 +34,11 @@ namespace ShooterMcGavin
             Health = 2;
             Damage = 10;
 
-            enemySpeed = 1f;
+            enemySpeed = 4f;
 
             PointValue = 100;
 
+            // for collisions
             this.pixel = pixel;
         }
 
@@ -57,12 +60,17 @@ namespace ShooterMcGavin
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(pixel, new Rectangle(
+           
+            EnemyAnimation.Draw(spriteBatch);
+        }
+
+        public Rectangle UpdateHitbox()
+        {
+            return new Rectangle(
                 (int)Position.X,
                 (int)Position.Y,
-                Width,
-                Height), Color.Red);
-            EnemyAnimation.Draw(spriteBatch);
+                Width - 10,
+                Height - 6);
         }
     }
 }

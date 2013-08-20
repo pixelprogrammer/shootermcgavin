@@ -26,10 +26,10 @@ namespace ShooterMcGavin
 
         float projectileMoveSpeed;
 
-        public void Initialize(Viewport viewport, Texture2D texture, Vector2 postion)
+        public void Initialize(Viewport viewport, Texture2D texture, Vector2 position)
         {
             Texture = texture;
-            Position = postion;
+            Position = position;
             this.viewport = viewport;
 
             Active = true;
@@ -42,13 +42,13 @@ namespace ShooterMcGavin
             // move the projectile
             Position.X += projectileMoveSpeed;
 
-            if (Position.X + Texture.Width / 2 > viewport.Width) Active = false;
+            if (Position.X > viewport.Width) Active = false;
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, Position, null, Color.White, 0f, new Vector2(Width / 2, Height / 2), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Texture, Position, null, Color.White, 0f, new Vector2(0,0), 1f, SpriteEffects.None, 0f);
         }
 
     }

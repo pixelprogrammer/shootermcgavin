@@ -25,6 +25,10 @@ namespace ShooterMcGavin
         public Animation PlayerAnimation;
         Texture2D pixel;
 
+        public Vector2 CollisionOffset;
+        public int CollisionWidth;
+        public int CollisionHeight;
+
         #endregion
 
         public void Initialize(Animation animation, Vector2 position, Texture2D pixel)
@@ -37,6 +41,10 @@ namespace ShooterMcGavin
             this.pixel = pixel;
             Health = 100;
 
+            CollisionOffset = new Vector2(22, 0);
+            CollisionWidth = Width - 27;
+            CollisionHeight = Height;
+
 
         }
         public void Update(GameTime gameTime)
@@ -47,14 +55,18 @@ namespace ShooterMcGavin
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(pixel, new Rectangle(
-                (int)Position.X,
-                (int)Position.Y,
-                Width,
-                Height), Color.Violet);
             PlayerAnimation.Draw(spriteBatch);
             
             
+        }
+
+        public Rectangle UpdateHitbox()
+        {
+            return new Rectangle(
+                (int)Position.X + (int)CollisionOffset.X,
+                (int)Position.Y + (int)CollisionOffset.Y,
+                Width - 27,
+                Height);
         }
 
     }

@@ -82,7 +82,6 @@ namespace ShooterMcGavin
         Rectangle testEnemyHitbox;
         List<Rectangle> testEnemies;
 
-        List<Rectangle> enemyHitboxes;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -106,7 +105,6 @@ namespace ShooterMcGavin
             bgLayer2 = new ParallaxingBackground();
 
             enemies = new List<Enemy>();
-            enemyHitboxes = new List<Rectangle>();
 
             previousSpawnTime = TimeSpan.Zero;
             enemySpawnTime = TimeSpan.FromSeconds(1.0f);
@@ -321,7 +319,7 @@ namespace ShooterMcGavin
 
             // lets make sure the player doesn't go out of bounds
 
-            player.Position.X = MathHelper.Clamp(player.Position.X, 0, GraphicsDevice.Viewport.Width - player.Width);
+            player.Position.X = MathHelper.Clamp(player.Position.X, -player.CollisionOffset.X, GraphicsDevice.Viewport.Width - player.Width);
             player.Position.Y = MathHelper.Clamp(player.Position.Y, 0, GraphicsDevice.Viewport.Height - player.Height);
 
             // lets add some shooting controls
@@ -343,22 +341,12 @@ namespace ShooterMcGavin
             enemyAnimation.Initialize(enemyTexture, Vector2.Zero, 47, 61, 8, 30, Color.White, 1f, true);
 
             Vector2 position = new Vector2(
-                GraphicsDevice.Viewport.Width + enemyTexture.Width, 100 + player.Height);
-                //random.Next(100, GraphicsDevice.Viewport.Height - 100));
+                GraphicsDevice.Viewport.Width + enemyTexture.Width, random.Next(100, GraphicsDevice.Viewport.Height - 100));
 
             Enemy enemy = new Enemy();
             enemy.Initialize(enemyAnimation, position, pixel);
 
             enemies.Add(enemy);
-
-            // delete this code after
-            Rectangle hitbox = new Rectangle(
-                (int)enemy.Position.X,
-                (int)enemy.Position.Y,
-                enemy.Width,
-                enemy.Height);
-
-            enemyHitboxes.Add(hitbox);
 
         }
 
@@ -386,7 +374,6 @@ namespace ShooterMcGavin
                         score += enemies[i].PointValue;
                     }
                     enemies.RemoveAt(i);
-                    enemyHitboxes.RemoveAt(i); // delete this code
                 }
             }
         }
@@ -396,24 +383,15 @@ namespace ShooterMcGavin
             
 
             // we will declare the hitbox for the player just once
-            playerHitbox = new Rectangle(
-                (int)player.Position.X,
-                (int)player.Position.Y,
-                player.Width,
-                player.Height);
+            playerHitbox = player.UpdateHitbox();
 
             // check the collision between the player and enemies
             for (int i = 0; i < enemies.Count; i++)
             {
 
                 // create the enemies hit box
-                enemyHitbox = new Rectangle(
-                    (int)enemies[i].Position.X,
-                    (int)enemies[i].Position.Y,
-                    enemies[i].Width,
-                    enemies[i].Height);
 
-                if (playerHitbox.Intersects(enemyHitbox))
+                if (playerHitbox.Intersects(enemies[i].UpdateHitbox()))
                 {
                     enemies[i].Health = 0;
                     // damage player
@@ -440,11 +418,7 @@ namespace ShooterMcGavin
                         projectiles[i].Height);
 
                     // lets do the enemies now
-                    enemyHitbox = new Rectangle(
-                        (int)enemies[j].Position.X,
-                        (int)enemies[j].Position.Y,
-                        enemies[j].Width,
-                        enemies[j].Height);
+                    enemyHitbox = enemies[j].UpdateHitbox();
 
                     // do the 2 objects collide
                     if (projectileHitbox.Intersects(enemyHitbox))
